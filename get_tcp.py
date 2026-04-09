@@ -29,18 +29,18 @@ try:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((UR5_IP, PORT))
         s.send(ur_script.encode('utf-8'))
-        print("✅ Command sent to UR5.")
+        print("Command sent to UR5.")
 
     # Create a listening socket on the PC to receive the pose
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind(("192.168.140.141", 5006))  # PC's IP and port
         server.listen(1)
-        print("🔄 Waiting for TCP pose data...")
+        print("Waiting for TCP pose data...")
 
         conn, addr = server.accept()
         with conn:
             data = conn.recv(1024).decode('utf-8').strip()  # Receive pose
-            print(f"📍 Current TCP Pose: {data}")  # Print received pose
+            print(f"Current TCP Pose: {data}")  # Print received pose
 
 except Exception as e:
-    print(f"❌ Error: {e}")
+    print(f"Error: {e}")
