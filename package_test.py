@@ -2,7 +2,7 @@ from boltvision.camera.receiver import DataReceiver
 from boltvision.robot.controller import UR5Controller
 from boltvision.robot.movement import RobotMover
 
-# ✅ Step 1: Initialize Components
+# Step 1: Initialize Components
 UR5_IP = "192.168.140.140"  # Change to your actual UR5 IP
 PORT = 30002  # Default UR5 script communication port
 
